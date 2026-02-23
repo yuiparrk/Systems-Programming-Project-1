@@ -23,3 +23,9 @@ void intialize_heap() {
     first->free = 1;
     intialized = 1;
 }
+
+size_t round_up(size_t size) {
+    if (size % 8 != 0) {
+        size = size + (8 - (size % 8));
+    }
+}
