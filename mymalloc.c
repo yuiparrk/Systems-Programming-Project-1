@@ -18,5 +18,8 @@ typedef struct {
 } header;
 
 void intialize_heap() {
-    
+    header *first = (header *)heap.bytes;
+    first->size = MEMLENGTH;
+    first->free = 1;
+    intialized = 1;
 }
