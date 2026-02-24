@@ -3,20 +3,20 @@ dp1555
 
 Test Plan:
 The following scenarios were tested:
-1. Making sure that mymalloc returns a valid pointer and myfree
-marks that block as free.
-2. Making sure that the mymalloc can split a large block with excess 
-memory into a smaller block to be used later and save space.
-3. Making sure that myfree can merge adjacent free blocks so that
-large allocations can be done on previously used space.
-4. Detectable Errors given in section 2.1:
+1. Running mymalloc twice to make sure there isnt any problems
+2. Uses the memory allocated from the previous step to write large
+amounts of 'A' in p1 and 'B' in p2 then checks if it was written 
+correctly to make sure memory allocation and memory writing works.
+3. Freeing the previously used memory and adding a large amount of
+memory in the space to make sure the memory was properly freed.
+4. Allocating 3 different blocks of memory, freeing it, and making sure
+it coalesces by allocating a large amount of memory.
+5. Allocating 2 blocks and not freeing it to make sure leak detection
+works properly
+6. Detectable Errors given in section 2.1:
 - calling myfree with a address not from mymalloc
 - calling myfree with a adress not at the start of a block
 - calling myfree 2 times on the same pointer
-5. Making sure atexit finds and reports any memory that was not freed
-at the end of the program.
-6. Using memgrind.c to test how long the average time of each workload
-was
 
 Description of Test Programs:
 Other than the errors in section 2.1 Detectable Errors, this program was
