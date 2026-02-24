@@ -47,15 +47,19 @@ void task3() {
     }
 }
 
+//allocate blocks of increasing size
 void task4() {
     char *ptrs[60];
     for (int i = 0; i < 60; i++) {
         ptrs[i] = malloc(i + 1);
     }
+    //free even indices
     for (int i = 0; i < 60; i += 2) free(ptrs[i]);
+    //free odd indices
     for (int i = 1; i < 60; i += 2) free(ptrs[i]);
 }
 
+//allocate a large amount of blocks and then free them all at once
 void task5() {
     void *ptrs[32];
     for(int i = 0; i < 32; i++) {
