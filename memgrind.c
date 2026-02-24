@@ -22,7 +22,6 @@ void task2() {
 
 void task3() {
     char *ptrs[120];
-    int allocated[120] = {0};
     int loc = 0;
     int total_mallocs = 0;
 
@@ -31,13 +30,11 @@ void task3() {
 
         if (choice == 0 && total_mallocs < 120) {
             ptrs[loc] = malloc(1);
-            allocated[loc] = 1;
             loc++;
             total_mallocs++;
         } else if (choice == 1 && loc > 0) {
             loc--;
             free(ptrs[loc]);
-            allocated[loc] = 0;
         }
     }
 
